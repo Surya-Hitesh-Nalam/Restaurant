@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="body1">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="logo.png" alt="Restaurant Logo" />
+            <span>Smart Hub</span>
+        </div>
+        <div class="nav-links">
+            <a onclick="window.location.href='view-menu.html'" class="nav-button">View Menu</a>
+            <a onclick="window.location.href='add-items.html'" class="nav-button">Add Items</a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="container">
+        <div class="text-section">
+            <h3>Welcome to Our Restaurant</h3>
+            <p>
+                You can view our menu and customize it as you need. Keep track of your restaurant menu easily and efficiently.
+            </p>
+            <div class="button-container">
+                <button onclick="window.location.href='view-menu.html'" class="view-products-button">
+                    View Menu 
+                </button>
+                <button onclick="window.location.href='add-items.html'" class="add-items-button">
+                    Add Items
+                </button>
+            </div>
+        </div>
+        <div class="image-section">
+            <img
+                src="food.jpg"
+                alt="Delicious restaurant dishes"
+            />
+        </div>
+    </section>
+</body>
+</html>
