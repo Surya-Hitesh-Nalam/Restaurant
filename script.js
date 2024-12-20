@@ -15,18 +15,35 @@ function addItem(event) {
     const name = document.getElementById('name').value.trim();
     const price = document.getElementById('price').value.trim();
     const description = document.getElementById('description').value.trim();
-    if (!section || !name || !price || !description) {
+    const calories = document.getElementById('calories').value.trim();
+    const proteins = document.getElementById('proteins').value.trim();
+    const carbs = document.getElementById('carbs').value.trim();
+    const fats = document.getElementById('fats').value.trim();
+
+    if (!section || !name || !price || !description || !calories || !proteins || !carbs || !fats) {
         alert("All fields are required!");
         return;
     }
+
     if (!menuData[section]) {
         menuData[section] = [];
     }
-    menuData[section].push({ name, price, description });
+
+    menuData[section].push({
+        name,
+        price,
+        description,
+        calories,
+        proteins,
+        carbs,
+        fats
+    });
+
     localStorage.setItem('menuData', JSON.stringify(menuData));
     alert("Item added successfully!");
     window.location.href = 'view-menu.html';
 }
+
 
 function displayMenu() {
     const menuContainer = document.getElementById('menuContainer');
@@ -44,8 +61,14 @@ function displayMenu() {
                 <div>
                     <h3>${item.name}</h3>
                     <p>${item.description}</p>
+                    <div class="nutrition-info">
+                        <span>Calories: ${item.calories}</span>
+                        <span>Proteins: ${item.proteins}g</span>
+                        <span>Carbs: ${item.carbs}g</span>
+                        <span>Fats: ${item.fats}g</span>
+                    </div>
                 </div>
-                <span>$${item.price}</span>
+                <span>₹${item.price}</span>
                 <button class="btn-delete" onclick="deleteItem('${section}', ${index})">
                     <i class="fas fa-trash"></i>
                 </button>
@@ -56,6 +79,8 @@ function displayMenu() {
     }
 }
 
+
+
 function deleteItem(section, index) {
     menuData[section].splice(index, 1);
     if (menuData[section].length === 0) {
@@ -64,3 +89,39 @@ function deleteItem(section, index) {
     localStorage.setItem('menuData', JSON.stringify(menuData));
     displayMenu();
 }
+
+
+// Carousel functionality
+let currentSlide = 0;
+
+function showSlide(index) {
+    const slides = document.querySelectorAll('.carousel-image');
+    if (index >= slides.length) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = slides.length - 1;
+    }
+    const carousel = document.querySelector('.carousel');
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+function nextSlide() {
+    currentSlide++;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide--;
+    showSlide(currentSlide);
+}
+
+// Accordion functionality
+const accordionBtns = document.querySelectorAll('.accordion-btn');
+
+accordionBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+});
+

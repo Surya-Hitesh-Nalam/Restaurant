@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Hub</title>
+    <title>Crazy Spices🌶️</title>
+    <link rel="icon" href="logo.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -12,11 +13,12 @@
     <nav class="navbar">
         <div class="nav-logo">
             <img src="logo.png" alt="Restaurant Logo" />
-            <span>Smart Hub</span>
+            <span>Crazy Spices🌶️</span>
         </div>
         <div class="nav-links">
             <a onclick="window.location.href='view-menu.html'" class="nav-button">View Menu</a>
             <a onclick="window.location.href='add-items.html'" class="nav-button">Add Items</a>
+            <a href="#contact-us" class="nav-button">Contact us</a>
         </div>
     </nav>
 
@@ -36,12 +38,71 @@
                 </button>
             </div>
         </div>
+
         <div class="image-section">
-            <img
-                src="food.jpg"
-                alt="Delicious restaurant dishes"
-            />
+            <!-- Carousel -->
+            <div class="carousel-container">
+                <div class="carousel">
+                    <img src="food.jpg" alt="Dish 1" class="carousel-image">
+                    <img src="food2.jpg" alt="Dish 2" class="carousel-image">
+                    <img src="food3.jpg" alt="Dish 3" class="carousel-image">
+                </div>
+                <div class="carousel-controls">
+                    <button class="prev" onclick="prevSlide()">&#10094;</button>
+                    <button class="next" onclick="nextSlide()">&#10095;</button>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Accordion Section -->
+    <section class="accordion-section">
+        <h3>Our Menu Categories</h3>
+        <div class="accordion">
+            <button class="accordion-btn">Appetizers</button>
+            <div class="accordion-content">
+                <p>Our delicious starters: bruschetta, garlic bread, etc.</p>
+            </div>
+
+            <button class="accordion-btn">Main Courses</button>
+            <div class="accordion-content">
+                <p>Delicious mains: grilled chicken, vegan burger, pasta, etc.</p>
+            </div>
+
+            <button class="accordion-btn">Desserts</button>
+            <div class="accordion-content">
+                <p>Sweets: chocolate cake, cheesecake, fruit tart, etc.</p>
+            </div>
+
+            <button class="accordion-btn">Beverages</button>
+            <div class="accordion-content">
+                <p>Drinks: coffee, fresh juices, wine, etc.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section Above Footer -->
+    <section class="contact-us" id="contact-us">
+        <h3>Contact Us</h3>
+        <form action="submit_form.php" method="POST" class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Smart Hub Restaurant | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
