@@ -6,13 +6,15 @@
     <title>View Menu</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="body3">
-    <div class="container2">
-        <h1>Menu</h1>
-        <div id="menuContainer" class="menu-items"></div>
-        <button onclick="window.location.href='index.html'">Back</button>
+<body class="bg-gray-900 text-gray-200 flex items-center justify-center min-h-screen">
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-2xl">
+        <h1 class="text-3xl text-orange-500 mb-4 text-center">Menu</h1>
+        <div id="menuContainer" class="menu-items space-y-4"></div>
+        <div class="mt-6 text-center">
+            <button onclick="window.location.href='index.html'" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition">Back</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

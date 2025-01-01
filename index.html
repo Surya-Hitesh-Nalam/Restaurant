@@ -7,99 +7,57 @@
     <link rel="icon" href="logo.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="body1">
+<body class="bg-gray-900 text-gray-200">
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-logo">
-            <img src="logo.png" alt="Restaurant Logo" />
+    <nav class="flex justify-between items-center p-4 bg-gray-800 sticky top-0 z-10 shadow-lg border-b-2 border-orange-500">
+        <div class="flex items-center gap-2 text-xl font-bold">
+            <img src="logo.png" alt="Restaurant Logo" class="w-10 h-10 rounded-full object-cover" />
             <span>Crazy Spices🌶️</span>
         </div>
-        <div class="nav-links">
-            <a onclick="window.location.href='view-menu.html'" class="nav-button">View Menu</a>
-            <a onclick="window.location.href='add-items.html'" class="nav-button">Add Items</a>
-            <a href="#contact-us" class="nav-button">Contact us</a>
+        <div class="flex gap-4">
+            <a onclick="window.location.href='view-menu.html'" class="px-4 py-2 text-white rounded hover:bg-orange-500 transition">View Menu</a>
+            <a onclick="window.location.href='add-items.html'" class="px-4 py-2 text-white rounded hover:bg-orange-500 transition">Add Items</a>
+            <a href="#contact-us" class="px-4 py-2 text-white rounded hover:bg-orange-500 transition">Contact us</a>
         </div>
     </nav>
 
     <!-- Main Section -->
-    <section class="container">
-        <div class="text-section">
-            <h3>Welcome to Our Restaurant</h3>
-            <p>
+    <section class="flex flex-col items-center justify-center p-4 min-h-screen text-center">
+        <div class="max-w-lg">
+            <h3 class="text-2xl text-orange-500 mb-4">Welcome to Our Restaurant</h3>
+            <p class="mb-4">
                 You can view our menu and customize it as you need. Keep track of your restaurant menu easily and efficiently.
             </p>
-            <div class="button-container">
-                <button onclick="window.location.href='view-menu.html'" class="view-products-button">
+            <div class="flex justify-center gap-4">
+                <button onclick="window.location.href='view-menu.html'" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition">
                     View Menu 
                 </button>
-                <button onclick="window.location.href='add-items.html'" class="add-items-button">
+                <button onclick="window.location.href='add-items.html'" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition">
                     Add Items
                 </button>
             </div>
         </div>
 
-        <div class="image-section">
+        <div class="flex items-center justify-center mt-8">
             <!-- Carousel -->
-            <div class="carousel-container">
-                <div class="carousel">
-                    <img src="food.jpg" alt="Dish 1" class="carousel-image">
-                    <img src="food2.jpg" alt="Dish 2" class="carousel-image">
-                    <img src="food3.jpg" alt="Dish 3" class="carousel-image">
+            <div class="relative w-full max-w-lg overflow-hidden">
+                <div class="flex transition-transform duration-500" id="carousel">
+                    <img src="food.jpg" alt="Dish 1" class="w-full h-auto">
+                    <img src="food2.jpg" alt="Dish 2" class="w-full h-auto">
+                    <img src="food3.jpg" alt="Dish 3" class="w-full h-auto">
                 </div>
-                <div class="carousel-controls">
-                    <button class="prev" onclick="prevSlide()">&#10094;</button>
-                    <button class="next" onclick="nextSlide()">&#10095;</button>
+                <div class="absolute top-1/2 w-full flex justify-between transform -translate-y-1/2">
+                    <button class="bg-black bg-opacity-50 text-white p-2 text-lg rounded" onclick="prevSlide()">&#10094;</button>
+                    <button class="bg-black bg-opacity-50 text-white p-2 text-lg rounded" onclick="nextSlide()">&#10095;</button>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Accordion Section -->
-    <section class="accordion-section">
-        <h3>Our Menu Categories</h3>
-        <div class="accordion">
-            <button class="accordion-btn">Appetizers</button>
-            <div class="accordion-content">
-                <p>Our delicious starters: bruschetta, garlic bread, etc.</p>
-            </div>
-
-            <button class="accordion-btn">Main Courses</button>
-            <div class="accordion-content">
-                <p>Delicious mains: grilled chicken, vegan burger, pasta, etc.</p>
-            </div>
-
-            <button class="accordion-btn">Desserts</button>
-            <div class="accordion-content">
-                <p>Sweets: chocolate cake, cheesecake, fruit tart, etc.</p>
-            </div>
-
-            <button class="accordion-btn">Beverages</button>
-            <div class="accordion-content">
-                <p>Drinks: coffee, fresh juices, wine, etc.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Us Section Above Footer -->
-    <section class="contact-us" id="contact-us">
-        <h3>Contact Us</h3>
-        <form action="submit_form.php" method="POST" class="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit" class="submit-button">Send Message</button>
-        </form>
     </section>
 
     <!-- Footer Section -->
-    <footer>
+    <footer class="bg-gray-900 text-white p-4 text-center mt-4">
         <p>&copy; 2024 Smart Hub Restaurant | All Rights Reserved</p>
     </footer>
 
